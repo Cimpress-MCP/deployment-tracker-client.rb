@@ -1,5 +1,4 @@
 require "bundler/gem_tasks"
-require "rubocop/rake_task"
 require "rake/clean"
 
 CLEAN.include("lib/deployment-tracker-client/api", "lib/deployment-tracker-client/models", "lib/swagger_client", "lib/swagger_client.rb")
