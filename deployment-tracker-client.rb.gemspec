@@ -17,7 +17,11 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  # These were stolen from the swagger_client generated gemspec
+  spec.add_runtime_dependency "typhoeus", "~> 0.2", ">= 0.2.1"
+  spec.add_runtime_dependency "addressable", "~> 2.2", ">= 2.2.4"
+  spec.add_runtime_dependency "json", "~> 1.4", ">= 1.4.6"
+
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rubocop", "~> 0.28"
 end
