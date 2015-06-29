@@ -1,0 +1,11 @@
+Metrics/LineLength:
+  Max: 120
+
+StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/Documentation:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false
