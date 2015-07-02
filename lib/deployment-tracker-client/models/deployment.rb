@@ -1,7 +1,7 @@
 module DeploymentTrackerClient
   # 
   class Deployment < BaseObject
-    attr_accessor :deployment_id, :engine, :engine_version, :host, :user, :environment, :package, :version, :result, :elapsed_seconds, :servers
+    attr_accessor :deployment_id, :engine, :engine_version, :host, :user, :environment, :package, :package_url, :version, :arguments, :result, :elapsed_seconds, :assert_empty_server_result, :servers
     # attribute mapping from ruby-style variable name to JSON key
     def self.attribute_map
       {
@@ -27,14 +27,23 @@ module DeploymentTrackerClient
         # The name of the software application or service being deployed
         :'package' => :'package',
         
+        # A URL that points to more information about the package
+        :'package_url' => :'package_url',
+        
         # The version of the package being deployed
         :'version' => :'version',
+        
+        # Any arguments used for the deployment
+        :'arguments' => :'arguments',
         
         # The result of running the deployment
         :'result' => :'result',
         
         # The elapsed time of the deployment, in seconds
         :'elapsed_seconds' => :'elapsed_seconds',
+        
+        # Whether or not to assert the result of a deployment to any server that doesn&#39;t have a result at the time the deployment is marked complete
+        :'assert_empty_server_result' => :'assert_empty_server_result',
         
         # The servers that participated in the deployment
         :'servers' => :'servers'
@@ -52,9 +61,12 @@ module DeploymentTrackerClient
         :'user' => :'string',
         :'environment' => :'string',
         :'package' => :'string',
+        :'package_url' => :'string',
         :'version' => :'string',
+        :'arguments' => :'string',
         :'result' => :'string',
         :'elapsed_seconds' => :'int',
+        :'assert_empty_server_result' => :'boolean',
         :'servers' => :'array[Server]'
         
       }
@@ -95,8 +107,16 @@ module DeploymentTrackerClient
         @package = attributes[:'package']
       end
       
+      if attributes[:'package_url']
+        @package_url = attributes[:'package_url']
+      end
+      
       if attributes[:'version']
         @version = attributes[:'version']
+      end
+      
+      if attributes[:'arguments']
+        @arguments = attributes[:'arguments']
       end
       
       if attributes[:'result']
@@ -105,6 +125,10 @@ module DeploymentTrackerClient
       
       if attributes[:'elapsed_seconds']
         @elapsed_seconds = attributes[:'elapsed_seconds']
+      end
+      
+      if attributes[:'assert_empty_server_result']
+        @assert_empty_server_result = attributes[:'assert_empty_server_result']
       end
       
       if attributes[:'servers']
