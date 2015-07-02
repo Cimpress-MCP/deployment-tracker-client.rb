@@ -18,7 +18,10 @@ Build it from https://github.com/swagger-api/swagger-codegen and set the SWAGGER
 
   %w(api models).each do |dir|
     # Copy folder into the deployment-tracker-client directory
-    FileUtils.mv("./lib/swagger_client/#{dir}", "./lib/deployment-tracker-client/#{dir}", force: true)
+    src = "./lib/swagger_client/#{dir}"
+    dest = "./lib/deployment-tracker-client/"
+    FileUtils.cp_r(src, dest)
+    FileUtils.rm_rf(src)
     Dir.foreach("./lib/deployment-tracker-client/#{dir}")	do |file|
       file = File.join("./lib/deployment-tracker-client/#{dir}", file)
       next unless File.file?(file)
