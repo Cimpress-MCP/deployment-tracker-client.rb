@@ -42,7 +42,7 @@ module DeploymentTrackerClient
         # The elapsed time of the deployment, in seconds
         :'elapsed_seconds' => :'elapsed_seconds',
         
-        # Whether or not to assert the result of a deployment to any server that doesn&#39;t have a result at the time the deployment is marked complete
+        # Whether or not to assert the result of a deployment to any server that doesn't have a result at the time the deployment is marked complete
         :'assert_empty_server_result' => :'assert_empty_server_result',
         
         # The servers that participated in the deployment
